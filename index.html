@@ -44,7 +44,7 @@
 
             let htmlscanner = new Html5QrcodeScanner(
                 "my-qr-reader",
-                { fps: 100, qrbox: window.innerWidth-50 ,aspectRatio:window.innerWidth/window.innerHeight}
+                { fps: 100, qrbox: 300 ,aspectRatio:0.5}
             );
             htmlscanner.render(onScanSuccess);
         });
