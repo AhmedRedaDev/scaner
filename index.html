@@ -5,12 +5,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>  </style>
+    <style>
+    body{
+      
+    }
+
+    #my-qr-reader{
+        
+       display: flex;
+       flex-direction: column;
+       height: 100vh;
+       justify-content: center;
+    } </style>
 </head>
 
 <body>
-    ahmed reda 4
-    <div id="my-qr-reader">
+  
+    <div id="my-qr-reader" >
     </div>
 
     <script src="./html5-qrcode.min.js">
@@ -44,7 +55,7 @@
 
             let htmlscanner = new Html5QrcodeScanner(
                 "my-qr-reader",
-                { fps: 100, qrbox: 250}
+                { fps: 100,   qrbox: { width: window.innerWidth*0.7, height: window.innerWidth*0.6 }  },
             );
             htmlscanner.render(onScanSuccess);
         });
