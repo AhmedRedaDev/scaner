@@ -1,0 +1,58 @@
+<!-- Index.html file -->
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0"> 
+     <style>
+ 
+
+     </style> 
+</head> 
+  
+<body> 
+    
+            <div id="my-qr-reader"> 
+            </div> 
+         
+    <script
+        src="https://unpkg.com/html5-qrcode"> 
+    </script> 
+    <script  >
+ 
+
+// script.js file 
+  
+function domReady(fn) { 
+    if ( 
+        document.readyState === "complete" || 
+        document.readyState === "interactive"
+    ) { 
+        setTimeout(fn, 1000); 
+    } else { 
+        document.addEventListener("DOMContentLoaded", fn); 
+    } 
+} 
+  
+domReady(function () { 
+  
+    // If found you qr code 
+    function onScanSuccess(decodeText, decodeResult) { 
+        console.log("🚀 ~ file: test.html:43 ~ onScanSuccess ~ decodeText, decodeResult:", decodeText, decodeResult)
+        alert("You Qr is : " + decodeText , decodeResult ); 
+        if(window.ReactNativeWebView) { // ensure window.ReactNativeWebView is there, otherwise, web app might crash if is not there
+    window.ReactNativeWebView.postMessage(JSON.stringify({decodeText, decodeResult}))
+  }
+    } 
+  
+    let htmlscanner = new Html5QrcodeScanner( 
+        "my-qr-reader", 
+        { fps: 10, qrbos: 250 } 
+    ); 
+    htmlscanner.render(onScanSuccess); 
+});
+    </script> 
+</body> 
+  
+</html>
