@@ -40,7 +40,7 @@ domReady(function () {
     // If found you qr code 
     function onScanSuccess(decodeText, decodeResult) { 
         console.log("🚀 ~ file: test.html:43 ~ onScanSuccess ~ decodeText, decodeResult:", decodeText, decodeResult)
-        alert("You Qr is : " + decodeText , decodeResult ); 
+        //alert("You Qr is : " + decodeText , decodeResult ); 
         if(window.ReactNativeWebView) { // ensure window.ReactNativeWebView is there, otherwise, web app might crash if is not there
     window.ReactNativeWebView.postMessage(JSON.stringify({decodeText, decodeResult}))
   }
